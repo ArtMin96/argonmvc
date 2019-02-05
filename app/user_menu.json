@@ -1,0 +1,7 @@
+{
+    "Login" : "auth/login",
+    "Register" : "auth/signup",
+    "%USERNAME%" : {
+        "Logout" : "auth/logout"
+    }
+}

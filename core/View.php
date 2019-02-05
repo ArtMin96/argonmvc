@@ -1,0 +1,111 @@
+<?php
+
+namespace Core;
+use Core\Router;
+use Core\Security\Ban;
+
+class View {
+    protected $_head, $_body, $_siteTitle = SITE_TITLE, $_outputBuffer, $_layout = DEFAULT_LAYOUT;
+
+    /**
+     * used to render the layout and view
+     * @method render
+     * @param  string $viewName path to view
+     */
+    public function render($viewName) {
+        $viewAry = explode('/', $viewName);
+        $viewString = implode(DS, $viewAry);
+        if(file_exists(ROOT.DS.'app'.DS.'views'.DS.$viewString.'.php')) {
+            include(ROOT.DS.'app'.DS.'views'.DS.$viewString.'.php');
+            include(ROOT.DS.'app'.DS.'views'.DS.'layouts'.DS.$this->_layout.'.php');
+        } else {
+            die("The view $viewName does not exist.");
+        }
+    }
+
+    /**
+     * Used in the layouts to embed the head and body
+     * @method content
+     * @param  string  $type can be head or body
+     * @return string       returns the output buffer of head and body
+     */
+    public function content($type) {
+        if($type == 'head') {
+            return $this->_head;
+        } elseif($type == 'body') {
+            return $this->_body;
+        }
+        return false;
+    }
+
+    /**
+     * starts the output buffer for the head or body
+     * @method start
+     * @param  string $type can be head or body
+     */
+    public function start($type) {
+        $this->_outputBuffer = $type;
+        ob_start();
+    }
+
+    /**
+     * echos the output buffer in the layout
+     * @method end
+     * @return string rendered html for head or body
+     */
+    public function end() {
+        if($this->_outputBuffer == 'head') {
+            $this->_head = ob_get_clean();
+        } elseif($this->_outputBuffer == 'body') {
+            $this->_body = ob_get_clean();
+        } else {
+            die('You must first run the start method.');
+        }
+    }
+
+    /**
+     * Getter for the site title
+     * @method siteTitle
+     * @return string    site title set in the view object
+     */
+    public function siteTitle() {
+        return $this->_siteTitle;
+    }
+
+    /**
+     * Sets the page title
+     * @method setSiteTitle
+     * @param  string   $title used for the title
+     */
+    public function setSiteTitle($title) {
+        $this->_siteTitle = $title;
+    }
+
+    /**
+     * sets the layout to be loaded
+     * @method setLayout
+     * @param  string    $path name of layout
+     */
+    public function setLayout($path) {
+        $this->_layout = $path;
+    }
+
+    /**
+     * inserts a partial into another partial
+     * @method insert
+     * @param  string $path path to view example register/register
+     */
+    public function insert($path) {
+        include ROOT.DS.'app'.DS.'views'.DS.$path.'.php';
+    }
+
+    /**
+     * inserts a partial into a view
+     * @method partial
+     * @param  string  $group   view sub directory
+     * @param  string  $partial partial name
+     */
+    public function partial($group, $partial) {
+        include ROOT.DS.'app'.DS.'views'.DS.$group.DS.'partials'.DS.$partial.'.php';
+    }
+}

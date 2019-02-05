@@ -1,0 +1,21 @@
+{
+    "DEBUG" : true,
+    
+    "DATABASE" : {
+        "DB_DRIVER" : "mysql",
+        "DB_HOST" : "127.0.0.1",
+        "DB_USER" : "root",
+        "DB_PASSWORD" : "",
+        "DB_NAME" : "argon"
+    },
+    
+    "APP_NAME" : "Argon",
+    
+    "VERSION" : "0.2",
+    
+    "DEFAULT_CONTROLLER" : "Home",
+    
+    "DEFAULT_LAYOUT" : "default",
+    
+    "APP_ROOT_PATH" : "/argon/"
+}

@@ -1,0 +1,11 @@
+php_flag display_errors on
+
+Options -Indexes
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $1 !^(config|core|front-resources|robots\.txt)
+
+RewriteRule ^(.+)$ index.php/$1 [L]
