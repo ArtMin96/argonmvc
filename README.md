@@ -12,6 +12,10 @@ Welcome to Argon! Argon MVC is a light-weight and high performance MVC framework
     ├── config                  # Configuration files
     ├── core                    # MVC Core
     ├── front-resources         # Front-End resources
+    ├── vendor                  # Packages folder
     ├── .htaccess               # .htaccess
-    ├── index.php               # MVC general configuration / Setting up
-    └── README.md               # README.md
+    ├── README.md               # README.md
+    ├── composer.json           # require your packages
+    ├── composer.lock           # composer.lock
+    ├── composer.phar           # composer.phar
+    └── index.php               # MVC general configuration / Setting up
