@@ -18,7 +18,7 @@ require_once(ROOT.DS.'config'.DS.'config.php');
 require_once(ROOT.DS.'app'.DS.'lib'.DS.'helpers'.DS.'functions.php');
 
 // Loading autoload.php for installed packages
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
 // Autoload classes
 
@@ -33,6 +33,25 @@ function autoload($className) {
 }
 
 spl_autoload_register('autoload');
+
+// PHPMailer configuration
+$mailer = new PHPMailer\PHPMailer\PHPMailer();
+
+$mailer->isSMTP();
+$mailer->Host = 'smtp.gmail.com';
+$mailer->SMTPAuth = true;
+$mailer->SMTPSecure = 'tls';
+$mailer->Port = 587;
+$mailer->Username = 'artminasyanart96@gmail.com';
+$mailer->Password = 'password96min';
+$mailer->From = 'artminasyanart96@gmail.com';
+$mailer->isHTML(true);
+
+$mail = new Core\Mailer\Mailer($mailer);
+$mail->send(ROOT.'/app/views/home/test.php', ['name' => 'Artur'], function($m) {
+    $m->to('artminasyanart96@gmail.com');
+    $m->subject('Welcome to the site!');
+});
 
 session_start();
 
