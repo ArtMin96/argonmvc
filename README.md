@@ -5,7 +5,7 @@ Welcome to Argon PHP! Argon is a light-weight MVC framework focused on ease of u
 
 > Folder structure options and naming conventions for Argon MVC
 
-### A typical top-level directory layout
+### Directory layout
 
     .
     ├── app                     # Website controllers, models, views, libraries
