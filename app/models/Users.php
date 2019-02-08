@@ -11,7 +11,7 @@ class Users extends Model {
     protected static $_table = 'users', $_softDelete = true;
     public static $currentLoggedInUser = null;
     public $id, $username, $email, $password, $fname, $lname, $acl, $deleted = 0, $confirm;
-    public const blackListedFormKeys = ['id', 'deleted'];
+    const blackListedFormKeys = ['id', 'deleted'];
     
     public function validator() {
         

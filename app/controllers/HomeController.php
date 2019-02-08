@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use Core\Controller;
+use Core\{Controller, Migration};
 use Core\Security\Restricted;
 
 class HomeController extends Controller {
