@@ -20,3 +20,7 @@ Welcome to Argon PHP! Argon is a light-weight MVC framework focused on ease of u
     ├── index.php               # Website general configuration
     ├── LICENSE                 # MVC LICENSE
     └── README.md               # MVC README.md
+    
+## License
+
+The Laravel framework is open-source software licensed under the MIT license.
