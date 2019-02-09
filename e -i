@@ -1,0 +1,101 @@
+[33mcommit 5a22d597acdff885ef9de9147f2a5b8c24c3a0a4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Artur Minasyan <artminasyanart96@gmail.com>
+Date:   Sat Feb 9 20:34:21 2019 +0400
+
+    Optimize MVC
+
+[33mcommit 0ba6772f0c7504bb793236c28e7f2b781085ff45[m
+Author: Artur Minasyan <artminasyanart96@gmail.com>
+Date:   Sat Feb 9 20:20:57 2019 +0400
+
+    First release
+
+[33mcommit e6c94688fe614064c8ec9b35685657e1ed48401a[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Artur <Artur Minasyan>
+Date:   Sat Feb 9 19:57:25 2019 +0400
+
+    improve performance
+
+[33mcommit cd4b8e8091118cde79a2e258b94590f93d31cf5b[m
+Author: Artur <Artur Minasyan>
+Date:   Sat Feb 9 19:36:40 2019 +0400
+
+    Fix auth session, mail templating bugs
+
+[33mcommit 624b6bce0e62f2329872cdd2889f6926a318cac4[m
+Author: Artur <Artur Minasyan>
+Date:   Sat Feb 9 18:36:07 2019 +0400
+
+    Fix auth session bug and mail template
+
+[33mcommit d00b895f46e934d5592c42426cc505d92349645a[m
+Author: Artur <Artur Minasyan>
+Date:   Sat Feb 9 02:50:53 2019 +0400
+
+    Fix typo
+
+[33mcommit 7ace435564947b76800ebf3fbea291039183c4b5[m
+Author: Artur <Artur Minasyan>
+Date:   Sat Feb 9 02:49:34 2019 +0400
+
+    Fix typo
+
+[33mcommit ddfec7591aec6d88f1203d4d32cc685305450e70[m
+Author: Artur <Artur Minasyan>
+Date:   Sat Feb 9 02:44:21 2019 +0400
+
+    Created mailer and database migration
+
+[33mcommit 8c49de9ced9a69f6e4cbaee80f7056f55846f761[m
+Author: Artur <Artur Minasyan>
+Date:   Sat Feb 9 02:36:34 2019 +0400
+
+    Created mailer and database migration
+
+[33mcommit 49597f2a628f05db6c1627488f5422f43610fbb4[m
+Author: Artur <Artur Minasyan>
+Date:   Thu Feb 7 04:47:53 2019 +0400
+
+    Fix Mailer bugs
+
+[33mcommit 2b9a72be4eb5f0510b09afcd7742f6e886fdfa2b[m
+Author: Artur <Artur Minasyan>
+Date:   Wed Feb 6 21:17:02 2019 +0400
+
+    Using PHPMailer package
+
+[33mcommit 2e5019fb20abd2134966509af51ee48647a6b813[m
+Author: Artur <Artur Minasyan>
+Date:   Wed Feb 6 20:08:04 2019 +0400
+
+    Project Structure
+
+[33mcommit 49bcec34a0311bc90bb3f2c9f827c204f32835f1[m
+Author: Artur <Artur Minasyan>
+Date:   Wed Feb 6 20:07:16 2019 +0400
+
+    Project Structure
+
+[33mcommit cc0af8add2e650458bf77d9937588c1ed3996a0f[m
+Author: Artur <Artur Minasyan>
+Date:   Wed Feb 6 20:03:49 2019 +0400
+
+    Project Structure
+
+[33mcommit 138a434f47a32f7056ddcb5840b55161f39cb1b7[m
+Author: Artur <Artur Minasyan>
+Date:   Wed Feb 6 19:47:30 2019 +0400
+
+    Updated README.md
+
+[33mcommit b4625503eb4253c874578d86f5642f8d48d8034d[m
+Author: Artur Minasyan <ArtMin96@users.noreply.github.com>
+Date:   Wed Feb 6 03:17:06 2019 +0400
+
+    Create README.md
+
+[33mcommit 055fdb9eaa8324a7370ed388a04fe9ab73bd2c79[m
+Author: Artur <Artur Minasyan>
+Date:   Wed Feb 6 03:14:10 2019 +0400
+
+    First release
