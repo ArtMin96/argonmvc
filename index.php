@@ -35,23 +35,23 @@ spl_autoload_register('autoload');
 session_start();
 
 // PHPMailer configuration
-$mailer = new PHPMailer\PHPMailer\PHPMailer();
-
-$mailer->isSMTP();
-$mailer->Host = 'smtp.gmail.com';
-$mailer->SMTPAuth = true;
-$mailer->SMTPSecure = 'tls';
-$mailer->Port = 587;
-$mailer->Username = 'artminasyanart96@gmail.com';
-$mailer->Password = 'password96min';
-$mailer->From = 'artminasyanart96@gmail.com';
-$mailer->isHTML(true);
-
-$mail = new Core\Mailer\Mailer($mailer);
-$mail->send(ROOT.'/app/views/home/test.php', ['name' => 'Artur'], function($m) {
-    $m->to('artminasyanart96@gmail.com');
-    $m->subject('Welcome to the site!');
-});
+//$mailer = new PHPMailer\PHPMailer\PHPMailer();
+//
+//$mailer->isSMTP();
+//$mailer->Host = 'smtp.gmail.com';
+//$mailer->SMTPAuth = true;
+//$mailer->SMTPSecure = 'tls';
+//$mailer->Port = 587;
+//$mailer->Username = 'artminasyanart96@gmail.com';
+//$mailer->Password = 'password96min';
+//$mailer->From = 'artminasyanart96@gmail.com';
+//$mailer->isHTML(true);
+//
+//$mail = new Core\Mailer\Mailer($mailer);
+//$mail->send(ROOT.'/app/views/home/test.php', ['name' => 'Artur'], function($m) {
+//    $m->to('artminasyanart96@gmail.com');
+//    $m->subject('Welcome to the site!');
+//});
 
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'], '/')) : [];
 
