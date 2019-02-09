@@ -35,6 +35,7 @@ spl_autoload_register('autoload');
 session_start();
 
 // PHPMailer configuration
+
 //$mailer = new PHPMailer\PHPMailer\PHPMailer();
 //
 //$mailer->isSMTP();
