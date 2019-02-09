@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use Core\{Controller, Router, Session};
+use Core\{Controller, Router, Session, Helper};
 use App\Models\{Users, Login};
 
 class AuthController extends Controller {

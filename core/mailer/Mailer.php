@@ -1,6 +1,7 @@
 <?php
 
 namespace Core\Mailer;
+use Core\Mailer\Message;
 
 class Mailer {
     
@@ -17,7 +18,9 @@ class Mailer {
         ob_start();
         require $template;
         $template = ob_get_clean();
-        ob_end_clean();
+        if(ob_get_length() > 0) {
+            ob_clean();
+        }
         
         $message->body($template);
         call_user_func($callback, $message);

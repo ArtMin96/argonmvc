@@ -5,9 +5,7 @@
  */
 // declare(strict_types = 1);
 
-use Core\Session;
-use Core\Cookie;
-use Core\Router;
+use Core\{Session, Cookie, Router, Mailer};
 use App\Models\Users;
 
 define('DS', '/');
@@ -34,6 +32,8 @@ function autoload($className) {
 
 spl_autoload_register('autoload');
 
+session_start();
+
 // PHPMailer configuration
 $mailer = new PHPMailer\PHPMailer\PHPMailer();
 
@@ -52,8 +52,6 @@ $mail->send(ROOT.'/app/views/home/test.php', ['name' => 'Artur'], function($m) {
     $m->to('artminasyanart96@gmail.com');
     $m->subject('Welcome to the site!');
 });
-
-session_start();
 
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'], '/')) : [];
 

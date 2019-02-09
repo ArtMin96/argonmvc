@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Controllers;
-use Core\{Controller, Migration};
+use Core\Controller;
 use Core\Security\Restricted;
 
 class HomeController extends Controller {
 
     public function __construct($controller, $action) {
         parent::__construct($controller, $action);
-        // var_dump($this->banIP->writeBannedIPLog($this->banIP->getIP()));
         $this->banIP->isIPExists();
     }
 

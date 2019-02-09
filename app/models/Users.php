@@ -31,7 +31,7 @@ class Users extends Model {
         // Password Validation
         $this->runValidation(new MinValidator($this, ['field' => 'password', 'rule' => 6, 'message' => 'Password must be a minimum of 6 characters.']));
         if($this->isNew()) {
-            $this->runValidation(new MatchesValidator($this,['field'=>'password','rule'=>$this->confirm,'message'=>"Your passwords do not match."]));
+            $this->runValidation(new MatchesValidator($this, ['field' => 'password', 'rule' => $this->confirm, 'message' => "Your passwords do not match."]));
         }
     }
     
