@@ -14,6 +14,7 @@ Welcome to Argon PHP! Argon is a light-weight MVC framework focused on ease of u
     ├── config                  # MVC configuration files
     ├── core                    # MVC core
     ├── front-resources         # Front-End resources
+    ├── migrations              # Database migrations
     ├── vendor                  # downloaded packages
     ├── .htaccess               # .htaccess server configuration
     ├── composer.json           # Composer for require packages
