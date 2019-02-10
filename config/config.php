@@ -17,7 +17,7 @@ define('DEFAULT_LAYOUT', 'default'); // if no layout is set in the controller us
 
 define('PROOT', '/argon/'); // set this to '/' for a live server
 
-define('VERSION','0.3'); // release version this can be used to display version or version assets like css and js files useful for fighting cached browser files
+define('VERSION','0.2'); // release version this can be used to display version or version assets like css and js files useful for fighting cached browser files
 
 define('SITE_TITLE', 'Argon'); // This will be used if no site title is set
 
