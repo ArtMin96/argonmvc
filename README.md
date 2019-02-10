@@ -19,9 +19,11 @@ Welcome to Argon PHP! Argon is a light-weight MVC framework focused on ease of u
     ├── composer.json           # Composer for require packages
     ├── composer.lock           # Composer.lock
     ├── composer.phar           # Composer.phar
+    ├── gen_migration.php       # Add database migrations
     ├── index.php               # Website general configuration
     ├── LICENSE                 # MVC LICENSE
-    └── README.md               # MVC README.md
+    ├── README.md               # MVC README.md
+    └── run_migration.php       # Get migrations
     
 ## License
 

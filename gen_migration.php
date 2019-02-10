@@ -10,9 +10,9 @@
     use Core\Migration;
 
     class '.$fileName.' extends Migration {
-    public function up() {
+        public function up() {
 
-    }
+        }
     }
     ';
     $resp = file_put_contents($fullPath, $content);
