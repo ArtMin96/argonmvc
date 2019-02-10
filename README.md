@@ -1,4 +1,6 @@
 # Argon MVC
+> - Created by Curtis Parham
+
 Welcome to Argon PHP! Argon is a light-weight MVC framework focused on ease of use and ability to extend. We aim to speed up the process of building a PHP web application. It comes with bootstrap preinstalled and is very easy to extend and use.
 
 # Folder Structure Conventions
