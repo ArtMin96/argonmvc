@@ -32,10 +32,11 @@ use Core\{Session, FormHelper};
 
 <body>
     <?php include 'main_menu.php'; ?>
+    <?= Session::displayMsg(); ?>
     <?= $this->content('body'); ?>
     <!-- Core -->
-    <script src="<?= PROOT ?>front-resources/vendor/jquery/jquery.min.js"></script>
-    <script src="<?= PROOT ?>front-resources/vendor/popper/popper.min.js"></script>
+    <script src="<?= PROOT ?>front-resources/js/jquery/jquery-3.3.1.min.js"></script>
+    <script src="<?= PROOT ?>front-resources/js/popper/popper.min.js"></script>
     <script src="<?= PROOT ?>front-resources/js/bootstrap/bootstrap.min.js"></script>
     <!-- Optional -->
     <script src="<?= PROOT ?>front-resources/js/alertMsg.js?v=<?= VERSION; ?>"></script>
