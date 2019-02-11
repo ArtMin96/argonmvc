@@ -53,10 +53,13 @@ class DB {
     }
     
     protected function _read($table, $params = [], $class) {
+        $columns = '*';
+        $joins = "";
         $conditionString = '';
         $bind = [];
         $order = '';
         $limit = '';
+        $offset = '';
         
         // Conditions
         if(isset($params['conditions'])) {
@@ -74,6 +77,18 @@ class DB {
             }
         }
         
+        // Columns
+        if(array_key_exists('columns', $params)) {
+            $columns = $params['columns'];
+        }
+        
+        if(array_key_exists('joins', $params)) {
+            foreach($params['joins'] as $join) {
+                $joins .= $this->_buildJoin($join);
+            }
+            $joins .= " ";
+        }
+        
         // Bind
         if(array_key_exists('bind', $params)) {
             $bind = $params['bind'];
@@ -88,7 +103,13 @@ class DB {
         if(array_key_exists('limit', $params)) {
             $limit = ' LIMIT '.$params['limit'];
         }
-        $sql = "SELECT * FROM {$table}{$conditionString}{$order}{$limit}";
+        
+        // Offset
+        if(array_key_exists('offset', $params)) {
+            $offset = ' OFFSET '.$params['offset'];
+        }
+        $sql = "SELECT {$columns} FROM {$table}{$joins}{$conditionString}{$order}{$limit}{$offset}";
+        
         if($this->query($sql, $bind, $class)) {
             if(!count($this->_result)) return false;
             return true;
@@ -175,6 +196,15 @@ class DB {
     
     public function error() {
         return $this->_error;
+    }
+    
+    protected function _buildJoin($join = []) {
+        $table = $join[0];
+        $condition = $join[1];
+        $alias = $join[2];
+        $type = (isset($join[3])) ? strtoupper($join[3]) : "INNER";
+        $jString = "{$type} JOIN {$table} {$alias} ON {$condition}";
+        return " ".$jString;
     }
     
 }
