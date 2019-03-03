@@ -6,6 +6,8 @@ date_default_timezone_set("Asia/Yerevan"); // set default timezone
 
 define('BANNED_IP_FILE', 'app/restricted/bannedIP.txt'); // set file to block IP addresses
 
+define('ERROR_LOG', ROOT.DS.'logs'.DS.'errors.log'); // set file to report errors
+
 define('DB_HOST', '127.0.0.1'); // // database host *** use IP address to avoid DNS lookup
 define('DB_NAME', 'argon'); // database name
 define('DB_USER', 'root'); // database user
