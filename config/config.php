@@ -9,13 +9,13 @@ define('BANNED_IP_FILE', 'app/restricted/bannedIP.txt'); // set file to block IP
 define('DB_HOST', '127.0.0.1'); // // database host *** use IP address to avoid DNS lookup
 define('DB_NAME', 'argon'); // database name
 define('DB_USER', 'root'); // database user
-define('DB_PASSWORD', ''); // database password
+define('DB_PASSWORD', 'password96min'); // database password
 
 define('DEFAULT_CONTROLLER', 'Home'); // default controller if there isn't one defined in the url
 
 define('DEFAULT_LAYOUT', 'default'); // if no layout is set in the controller use this layout.
 
-define('PROOT', '/argon/'); // set this to '/' for a live server
+define('PROOT', '/'); // set this to '/' for a live server
 
 define('VERSION','0.2'); // release version this can be used to display version or version assets like css and js files useful for fighting cached browser files
 

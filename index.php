@@ -8,8 +8,16 @@
 use Core\{Session, Cookie, Router, Mailer};
 use App\Models\Users;
 
-define('DS', '/');
-define('ROOT', dirname(__FILE__));
+// Set separator
+define('DS', DIRECTORY_SEPARATOR);
+
+// Set the current working directory
+define('ROOT', getcwd());
+
+// Set the current directory correctly for CLI requests
+if(defined('STDIN')) {
+  chdir(dirname(__FILE__));
+}
 
 // Load configuration and helper functions
 require_once(ROOT.DS.'config'.DS.'config.php');
