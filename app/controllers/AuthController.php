@@ -5,11 +5,12 @@ use Core\{Controller, Router, Session, Helper};
 use App\Models\{Users, Login};
 
 class AuthController extends Controller {
-    
+
     public function onConstruct() {
+        $this->banIP->isIPExists();
         $this->view->setLayout('default');
     }
-    
+
     public function loginAction() {
         $loginModel = new Login();
         if($this->request->isPost()) {
@@ -32,14 +33,14 @@ class AuthController extends Controller {
         $this->view->displayErrors = $loginModel->getErrorMessages();
         $this->view->render('auth/login');
     }
-    
+
     public function logoutAction() {
         if(Users::currentUser()) {
             Users::currentUser()->logout();
         }
         Router::redirect('home');
     }
-    
+
     public function signupAction() {
         $newUser = new Users();
         if($this->request->isPost()) {
@@ -50,10 +51,10 @@ class AuthController extends Controller {
                 Router::redirect('auth/login');
             }
         }
-            
+
         $this->view->newUser = $newUser;
         $this->view->displayErrors = $newUser->getErrorMessages();
         $this->view->render('auth/signup');
     }
-    
+
 }

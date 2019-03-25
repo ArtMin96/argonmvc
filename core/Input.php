@@ -30,7 +30,7 @@ class Input {
             }
             return $data;
         }
-        return trim(FormHelper::sanitize($_REQUEST[$input]));
+        return (array_key_exists($input, $_REQUEST))? trim(FormHelper::sanitize($_REQUEST[$input])) : '';
     }
     
     public function csrfCheck() {
