@@ -2,14 +2,14 @@
 
 namespace Core\Validators;
 use Core\Validators\CustomValidator;
+use Core\helper;
 
 class UniqueValidator extends CustomValidator {
     
     public function runValidation() {
-        $field = (is_array($this->field)) ? $this->field[0] : $this->field;
-        $value = $this->_model->{$field};
+        $value = $this->_model->{$this->field};
 
-        $conditions = ["{$field} = ?"];
+        $conditions = ["{$this->field} = ?"];
         $binds = [$value];
         
         // check updating record
@@ -19,12 +19,9 @@ class UniqueValidator extends CustomValidator {
         }
         
         // this allows you to check multiple fields for Unique
-        if(is_array($this->field)) {
-            array_shift($this->field);
-            foreach($this->field as $adds) {
-                $conditions[] = "{$adds} = ?";
-                $binds[] = $this->_model->{$adds};
-            }
+        foreach($this->additionalFieldData as $adds) {
+            $conditions[] = "{$adds} = ?";
+            $binds[] = $this->_model->{$adds};
         }
         
         if($value == '' || !isset($value)){

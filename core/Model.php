@@ -67,6 +67,19 @@ class Model {
         }
         return $params;
     }
+    
+    /**
+     * used to set default fetchStyle param
+     * @method _fetchStyleParams
+     * @param  array            $params query params
+     * @return array                    updated params
+     */
+    protected static function _fetchStyleParams($params){
+        if(!isset($params['fetchStyle'])){
+            $params['fetchStyle'] = \PDO::FETCH_CLASS;
+        }
+        return $params;
+    }
 
     /**
      * Find a result set
@@ -75,6 +88,7 @@ class Model {
      * @return array          array of rows or an empty array if none found
      */
     public static function find($params = []) {
+        $params = static::_fetchStyleParams($params);
         $params = static::_softDeleteParams($params);
         $resultsQuery = static::getDb()->find(static::$_table, $params,static::class);
         if(!$resultsQuery) return [];
@@ -88,6 +102,7 @@ class Model {
      * @return object | false      returns Model object or false if one is not found
      */
     public static function findFirst($params = []) {
+        $params = static::_fetchStyleParams($params);
         $params = static::_softDeleteParams($params);
         $resultQuery = static::getDb()->findFirst(static::$_table, $params,static::class);
         return $resultQuery;

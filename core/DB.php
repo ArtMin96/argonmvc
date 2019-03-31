@@ -3,15 +3,16 @@
 namespace Core;
 use \PDO;
 use \PDOException;
+use Helper;
 
 class DB {
     
     private static $_instance = null;
-    private $_pdo, $_query, $_error = false, $_result, $_count = 0, $_lastInsertID = null;
+    private $_pdo, $_query, $_error = false, $_result, $_count = 0, $_lastInsertID = null, $_fetchStyle = PDO::FETCH_OBJ;
     
     private function __construct() {
         try {
-            $this->_pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD);
+            $this->_pdo = new PDO(DB_ENGINE.':host='.DB_HOST.';dbname='.DB_NAME.';charset='.DB_CHARSET, DB_USER, DB_PASSWORD);
             $this->_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->_pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         } catch(PDOException $e) {
@@ -38,10 +39,10 @@ class DB {
             }
             
             if($this->_query->execute()) {
-                if($class) {
-                    $this->_result = $this->_query->fetchALL(PDO::FETCH_CLASS, $class);
+                if($class && $this->_fetchStyle === PDO::FETCH_CLASS) {
+                    $this->_result = $this->_query->fetchAll($this->_fetchStyle, $class);
                 } else {
-                    $this->_result = $this->_query->fetchALL(PDO::FETCH_OBJ);
+                    $this->_result = $this->_query->fetchAll($this->_fetchStyle);
                 }
                 $this->_count = $this->_query->rowCount();
                 $this->_lastInsertID = $this->_pdo->lastInsertId();
@@ -60,6 +61,11 @@ class DB {
         $order = '';
         $limit = '';
         $offset = '';
+        
+        //Fetch style
+        if(isset($params['fetchStyle'])) {
+            $this->_fetchStyle = $params['fetchStyle'];
+        }
         
         // Conditions
         if(isset($params['conditions'])) {

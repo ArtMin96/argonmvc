@@ -5,7 +5,7 @@ use \Exception;
 
 abstract class CustomValidator {
     
-    public $success = true, $message = '', $field, $rule;
+    public $success = true, $message='', $field, $additionalFieldData = [], $rule;
     protected $_model;
     
     public function __construct($model, $params) {
@@ -15,7 +15,13 @@ abstract class CustomValidator {
         if(!array_key_exists('field', $params)) {
             throw new Exception('You must include "field" element in the params array.');
         } else {
-            $this->field = (is_array($params['field'])) ? $params['field'][0] : $params['field'];
+            if(is_array($params['field'])) {
+                $this->field = $params['field'][0];
+                array_shift($params['field']);
+                $this->additionalFieldData = $params['field'];
+            } else {
+                $this->field = $params['field'];
+            }
         }
         
         // Make sure field exists in model
