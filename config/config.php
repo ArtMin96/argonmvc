@@ -2,7 +2,8 @@
 
 define('DEBUG', true); // set debug to false for production
 
-date_default_timezone_set("Asia/Yerevan"); // set default timezone
+// this should be set to false for security reasons. If you need to run migrations from the browser you can set this to true, then run migrations, then set it back to false.
+define('RUN_MIGRATIONS_FROM_BROWSER', false);
 
 define('BANNED_IP_FILE', 'app/restricted/bannedIP.txt'); // set file to block IP addresses
 
@@ -19,7 +20,7 @@ define('DEFAULT_CONTROLLER', 'Home'); // default controller if there isn't one d
 
 define('DEFAULT_LAYOUT', 'default'); // if no layout is set in the controller use this layout.
 
-define('PROOT', '/argonmvc/'); // set this to '/' for a live server
+define('PROOT', '/'); // set this to '/' for a live server
 
 define('VERSION','0.27'); // release version this can be used to display version or version assets like css and js files useful for fighting cached browser files
 

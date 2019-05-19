@@ -133,6 +133,18 @@ class FormHelper {
         $html .= '</div>';
         return $html;
     }
+    
+    /**
+     * Creates a hidden input field
+     * @method hiddenInput
+     * @param  string      $name  name and id of the hidden input
+     * @param  string      $value input value
+     * @return string             Returns an html string for hidden input field
+     */
+    public static function hiddenInput($name, $value) {
+        $html = '<input type="hidden" name="'.$name.'" id="'.$name.'" value="'.$value.'" />';
+        return $html;
+    }
 
     /**
      * Turns an array of attributes into an attribute string to be used in an html tag

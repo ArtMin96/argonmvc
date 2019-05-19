@@ -5,7 +5,8 @@ use Core\Router;
 use Core\Security\Ban;
 
 class View {
-    protected $_head, $_body, $_siteTitle = SITE_TITLE, $_outputBuffer, $_layout = DEFAULT_LAYOUT;
+    protected $_siteTitle = SITE_TITLE,  $_layout = DEFAULT_LAYOUT;
+    protected $_content=[], $_currentBuffer;
 
     /**
      * used to render the layout and view
@@ -30,12 +31,11 @@ class View {
      * @return string       returns the output buffer of head and body
      */
     public function content($type) {
-        if($type == 'head') {
-            return $this->_head;
-        } elseif($type == 'body') {
-            return $this->_body;
+        if(array_key_exists($type, $this->_content)) {
+            return $this->_content[$type];
+        } else {
+            return false;
         }
-        return false;
     }
 
     /**
@@ -44,7 +44,8 @@ class View {
      * @param  string $type can be head or body
      */
     public function start($type) {
-        $this->_outputBuffer = $type;
+        if(empty($type)) die('You must define a type.');
+        $this->_currentBuffer = $type;
         ob_start();
     }
 
@@ -54,10 +55,9 @@ class View {
      * @return string rendered html for head or body
      */
     public function end() {
-        if($this->_outputBuffer == 'head') {
-            $this->_head = ob_get_clean();
-        } elseif($this->_outputBuffer == 'body') {
-            $this->_body = ob_get_clean();
+        if(!empty($this_currentBuffer)) {
+            $this->_content[$this->_currentBuffer] = ob_get_clean();
+            $this->_currentBuffer = null;
         } else {
             die('You must first run the start method.');
         }

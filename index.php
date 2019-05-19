@@ -51,14 +51,14 @@ session_start();
 //$mailer->SMTPAuth = true;
 //$mailer->SMTPSecure = 'tls';
 //$mailer->Port = 587;
-//$mailer->Username = 'artminasyanart96@gmail.com';
-//$mailer->Password = 'password96min';
-//$mailer->From = 'artminasyanart96@gmail.com';
+//$mailer->Username = 'username@gmail.com';
+//$mailer->Password = 'password';
+//$mailer->From = 'from@gmail.com';
 //$mailer->isHTML(true);
 //
 //$mail = new Core\Mailer\Mailer($mailer);
-//$mail->send(ROOT.'/app/views/home/test.php', ['name' => 'Artur'], function($m) {
-//    $m->to('artminasyanart96@gmail.com');
+//$mail->send(ROOT.'/app/views/home/test.php', ['name' => 'Your Name'], function($m) {
+//    $m->to('to@gmail.com');
 //    $m->subject('Welcome to the site!');
 //});
 
