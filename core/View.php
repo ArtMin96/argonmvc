@@ -6,7 +6,7 @@ use Core\Security\Ban;
 
 class View {
     protected $_siteTitle = SITE_TITLE,  $_layout = DEFAULT_LAYOUT;
-    protected $_content=[], $_currentBuffer;
+    protected $_content = [], $_currentBuffer;
 
     /**
      * used to render the layout and view
@@ -55,7 +55,7 @@ class View {
      * @return string rendered html for head or body
      */
     public function end() {
-        if(!empty($this_currentBuffer)) {
+        if(!empty($this->_currentBuffer)) {
             $this->_content[$this->_currentBuffer] = ob_get_clean();
             $this->_currentBuffer = null;
         } else {
